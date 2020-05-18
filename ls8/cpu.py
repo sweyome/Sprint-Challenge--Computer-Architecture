@@ -12,7 +12,7 @@ RET = 0b00010001
 ADD = 0b10100000
 SP = 7  
 
-# Sprint challenge 
+#! Sprint challenge 
 CMP = 0b10100111
 JMP = 0b01010100 
 JEQ = 0b01010101
@@ -45,10 +45,8 @@ class CPU:
             PUSH: self.op_push,
             CALL: self.op_call,
             RET: self.op_ret,
-            CMP: self.op_cmp, 
-            JMP: self.op_jmp,
-            JEQ: self.op_jeq,  
-            JNE: self.op_jne 
+
+        
         }
 
     def op_ldi(self, operand_a, operand_b):
@@ -79,6 +77,10 @@ class CPU:
     def op_ret(self):
         self.pc = self.ram[self.reg[SP]]
         self.reg[SP] += 1
+
+
+#! Sprint challenge 
+
     def op_cmp(self, operand_a, operand_b):
         self.alu("CMP", operand_a, operand_b)
     def op_jmp(self, operand_a, operand_b):
@@ -184,7 +186,7 @@ class CPU:
             #self.ie,
             self.ram_read(self.pc),
             self.ram_read(self.pc + 1),
-            self.ram_read(self.pc + 2)
+            # self.ram_read(self.pc + 2)
         ), end='')
 
         for i in range(8):
