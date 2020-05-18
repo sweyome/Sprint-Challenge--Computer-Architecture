@@ -46,7 +46,11 @@ class CPU:
             CALL: self.op_call,
             RET: self.op_ret,
 
-        
+        #! Sprint challenge 
+            CMP: self.op_cmp, 
+            JMP: self.op_jmp,
+            JEQ: self.op_jeq,  
+            JNE: self.op_jne 
         }
 
     def op_ldi(self, operand_a, operand_b):
